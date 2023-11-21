@@ -26,3 +26,20 @@ var audio = {
 
 audio.init();
 
+setInterval(function(){
+    //xprint("Im here")
+    var dt = new Date( );
+    //var utcDate = new Date(currentDate.getTime() + (timezoneOffset * 60000));
+
+    $.ajax({
+      //url:'/your_url',
+      //type:'POST',
+      data:{
+         current_time:dt.getMilliseconds(),
+         //progress:media.features['progress'],
+         },
+      dataType:'json',
+      success:function(response){ console.log(response);},
+      error:function(err){console.log(err);}
+    });
+ },1000);
