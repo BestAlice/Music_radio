@@ -25,10 +25,10 @@ var audio = {
 };
 
 audio.init();
+var dt = new Date( );
 
 setInterval(function(){
     //xprint("Im here")
-    var dt = new Date( );
     //var utcDate = new Date(currentDate.getTime() + (timezoneOffset * 60000));
 
     $.ajax({

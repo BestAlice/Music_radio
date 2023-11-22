@@ -3,8 +3,13 @@ from django.shortcuts import render
 # Create your views here.
 from django.core.paginator import Paginator
 from . models import Song
+from yandex_music import Client
+
+client = Client('y0_AgAAAAAa3wxhAAG8XgAAAADyfz_lsiMC9PmHRFyrDyd1Rmz_YlR-DVk').init()
 
 def index(request):
+    urls = client.users_likes_tracks()
+
     paginator= Paginator(Song.objects.all(),1)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
